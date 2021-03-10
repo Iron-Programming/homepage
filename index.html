@@ -85,6 +85,8 @@
                 position: absolute;
                 left: 0px;
                 top: 0px;
+                z-index: 0;
+                pointer-events: none;
             }
             
             #aboutWords {
@@ -94,6 +96,7 @@
                 font-size: 25px;
 		min-height: 300px;
                 background: linear-gradient(45deg, rgb(219, 146, 37, 0.5), rgb(217, 49, 37, 0.5), rgb(217, 121, 37, 0.5));
+                z-index: 5;
             }
             
             #newsWords {
@@ -103,9 +106,15 @@
                 font-size: 25px;
 		min-height: 300px;
                 background: linear-gradient(45deg, rgb(219, 146, 37, 0.5), rgb(217, 49, 37, 0.5), rgb(217, 121, 37, 0.5));
+                z-index: 5;
+            }
+            
+            select {
+                z-index: 5;
             }
             
             #pTable {
+                z-index: 5;
                 margin: 10px;
                 margin-left: 10vw;
                 text-align: left;
@@ -130,6 +139,7 @@
                 width: 40vw;
             }
             .sortHeader {
+                z-index: 5;
                 cursor: pointer;
                 color: rgb(156, 136, 22);
             }
@@ -138,6 +148,7 @@
             }
             
             #notice {
+                z-index: 5;
                 margin-left: 10vw;
                 padding: 15px;
                 width: 75vw;
@@ -146,6 +157,7 @@
             }
             
             #levelBox {
+                z-index: 5;
                 background-color: rgb(135, 95, 16);
                 border-radius: 10px;
                 height: 50px;
