@@ -107,7 +107,7 @@
             
             #pTable {
                 margin: 10px;
-                margin-left: 390px;
+                margin-left: 10vw;
                 text-align: left;
                 border-collapse: separate;
                 border-spacing: 0px 10px;
@@ -115,7 +115,7 @@
             #pTable {
                overflow-y: scroll;
                width : 532px;
-               height: 225px;
+               height: 40vw;
                display: block;
             }
             #pTable td {
@@ -127,8 +127,8 @@
                 padding-left: 15px;
                 background-color: none;
             }
-            #nameCol {
-                width: 225px;
+            #pTable th {
+                width: 40vw;
             }
             .sortHeader {
                 cursor: pointer;
@@ -145,9 +145,16 @@
                 font-size: 15px;
                 background: linear-gradient(45deg, rgb(219, 146, 37, 0.5), rgb(217, 49, 37, 0.5), rgb(217, 121, 37, 0.5));
             }
-	    #scoringRubric {
-		color: red;
-	    }
+            
+            #levelBox {
+                background-color: rgb(135, 95, 16);
+                border-radius: 10px;
+                height: 50px;
+                margin-left: 10vw;
+            }
+            .challenge {
+                font-style: italic;
+            }
         </style>
     </head>
     <body>
@@ -167,7 +174,7 @@
             <h1 class="title">ABOUT BAR0N</h1>
             
             
-            <p id="aboutWords">Team BAR0N is a cool team composed of veteran and beginner typers alike. Our team captain is Captain B., who gives out cash awards in the available challenges throughout the season. Join us for fun typing plus fun challenges to earn cash!</p>
+            <p id="aboutWords">Team BAR0N is a cool team composed of veteran and beginner typers alike. Our team captain is Captain B., who gives out cash awards in the available challenges throughout the season. Check out the news for the current challenges and the leaderboard for the best racers (team/season/</p>
             <button class="mButton" onClick="switchPage('menu')">Menu</button>
             
             <div id="aboutCanvas"></div>
@@ -177,7 +184,12 @@
         <div class="page" id="news">
             <h1 class="title">BAR0N NEWS</h1>
             
-            <p id="newsWords">NITRO TYPE BAR0NS HOMEPAGE has been released! Let me explain how the competition will work. There are 3 types of "goodies": rubies, diamonds, and money bags (as you see in the menu page). These will be collected in the challenges that I will release (coming soon!). Every season there will be a set of "rules" determining how much "game points" you get from these goodies. This will be shown at the leaderboard section. Depending on the current season I will give out cash awards which I will specify. Happy typing!</p>
+            <p id="newsWords">NITRO TYPE BAR0NS HOMEPAGE has been released! Check out the current challenges below!<br>
+                <span class="challenge">(1.) Beat me in a race - earn 100k! Invite me to a race and beat me (without me getting disqualified)! Don't worry, I won't get disqualified on purpose. :)</span>
+                <span class="challenge"><br>(2.) Become a top 300 racer on our team! Earn 200K if you get in the top 300 racers (which you'll see on your car or at least in your garage).</span>
+                <span>MORE COMING SOON!</span>
+            </p>
+            
             <button class="mButton" onClick="switchPage('menu')">Menu</button>
             
             <div id="newsCanvas"></div>
@@ -189,67 +201,33 @@
             
             <div id="scoringRubric"></div>
             
-            <p id="notice">Click on the table headers to sort the table by that column. Don't see yourself here? That means you don't have any points! Make sure to participant in the next challenge(s) to show yourself a worthy opponent!<br><span id="scoringRubric">(1 set) of diamond + ruby + money-bag = 5 pt. 1pt per ruby. 2pt per diamond. 0pt per money-bag</span></p>
+            <p id="notice">This are the best of the BAR0NS! I will give cash to these racers occassionally (check the news to see when)! Use the drop-down button below to sort by speed/season-points/team-races.<br></p>
+            
+            <select name="levelBox" id="levelBox">
+              <option value="seasonPoints">Season Points</option>
+              <option value="teamRaces">Team Races</option>
+              <option value="speed">Speed (WPM)</option>
+            </select>
             
             <table id="pTable">
                 <thead>
                     <tr>
                         <th id="nameCol"><span onClick="sortTeams(0)" class="sortHeader" id="sortByTeam">Name</span></th>
-                        <th><span onClick="sortTeams(1)" class="sortHeader" id="sortByTeam">Money Bags</span></th>
-                        <th><span onClick="sortTeams(2)" class="sortHeader" id="sortByTeam">Rubies</span></th>
-                        <th><span onClick="sortTeams(3)" class="sortHeader" id="sortByTeam">Diamonds</span></th>
-                        <th><span onClick="sortTeams(3)" class="sortHeader" id="sortByTeam">Points</span></th>
+                        <th><span onClick="sortTeams(1)" class="sortHeader" id="sortByThing">Fastest Racers</span></th>
                     </tr>
                 </thead>
                 <tbody id="participants">
                     <tr>
-                        <td>Captain B.</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
+                        <td>Person 1</td>
+                        <td>Value 1</td>
                     </tr>
                     <tr>
-                        <td>Sulstan of Speed</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
+                        <td>Person 2</td>
+                        <td>Value 2</td>
                     </tr>
                     <tr>
-                        <td>Lord Hando</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>Queen_C</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>EmpressT</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>Baron Nugget</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>Shadow Crusader</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
+                        <td>Person 3</td>
+                        <td>Value 3</td>
                     </tr>
                 </tbody>
             </table>
@@ -263,6 +241,46 @@
     </body>
     
     <script>
+        var leaderboards = {
+            "speed" : [
+                ["Captain B.", "154 WPM"],
+                ["Hobbit=GRIND", "112 WPM"],
+                ["EmpressT", "102 WPM"]
+            ],
+            "seasonPoints" : [
+                ["Captain B.", "213,103 pts"],
+                ["PLEASE JOIN MY TEAM", "121,104 pts"],
+                ["EmpressT", "119,032 pts"]
+            ],
+            "teamRaces" : [
+                ["Captain B.", "2,597 rcs"],
+                ["Queen_C", "1,261 rcs"],
+                ["Baron Nugget", "1,128 rcs"]
+            ],
+        };
+        
+        function createLeaderboard(which) {
+            var table = document.getElementById('participants');
+            var top3 = leaderboards[which];
+            for (var i = 0; i < table.rows.length; i++) {
+                var row = table.rows[i];
+                row.children[0].textContent = top3[i][0];
+                row.children[1].textContent = top3[i][1];
+            }
+            
+            switch (which) {
+                case 'speed':
+                    document.getElementById("sortByThing").textContent = "Fastest Racer";
+                break;
+                case 'seasonPoints':
+                    document.getElementById("sortByThing").textContent = "Top Racers This Season";
+                break;
+                case 'teamRaces':
+                    document.getElementById("sortByThing").textContent = "Best BAR0N MEMBERS";
+            }
+        }
+        createLeaderboard('seasonPoints');
+        
         function sortTeams(col) {
                 var table, i, x, y; 
                 table = document.getElementById("participants"); 
@@ -317,6 +335,284 @@
     <!-- SVG Graphics Engine in Java Script -->
     <script src="https://cdn.jsdelivr.net/gh/Iron-Programming/SVG-Graphics-Library@latest/script.js"></script>
     
+    <!-- Canvas Library -->
+    <script>
+        var SVGCANVAS, color, stroke, strokeWeight, path, ellipse, rect, line, triangle, cPath, vertex, beginPath, endPath, cBezierVertex, qBezierVertex, bezier, scBezierVertex, sqBezierVertex, animate, text, ROTATE = 0,
+            TRANSLATEX = 0,
+            TRANSLATEY = 0,
+            SCALEX = 1,
+            SCALEY = 1,
+            rotate, scale, translate, resetMatrix, rotPosX = 0,
+            rotPosY = 0,
+            draw, drawSpeed = 50,
+            frameRate;
+        var COUNTER = 0;
+        var xlmns = "http://www.w3.org/2000/svg";
+        var Canvas = (function() {
+            //// Canvas Constructor ////
+            var Canvas = function(id, width, height, parent) {
+                ///// Create SVG canvas element /////
+                var svg = document.createElementNS(xlmns, "svg");
+                svg.setAttribute("id", id);
+                svg.setAttribute('viewBox', "0 0 " + width + " " + height);
+                document.querySelector(parent).appendChild(svg);
+                SVGCANVAS = svg;
+                //// current color ////
+                this.cc = "rgb(255, 255, 255)";
+                //// current stroke ////
+                this.cs = "rgb(255, 255, 255)";
+                //// current stroke-width ////
+                this.csw = 1;
+            };
+            //// Canvas methods: essentially our library ////
+            Canvas.prototype = {
+                color: function(r, g, b, a) {
+                    a = a || 255;
+                    this.cc = "rgb(" + r + "," + g + "," + b + "," + a + ")";
+                },
+                stroke: function(r, g, b, a) {
+                    a = a || 255;
+                    this.cs = "rgb(" + r + "," + g + "," + b + "," + a + ")";
+                },
+                strokeWeight: function(w) {
+                    this.csw = w;
+                },
+                text: function(message, x, y, size) {
+                    var newText = document.createElementNS(xlmns, "text");
+                    newText.setAttribute("x", x);
+                    newText.setAttribute("y", y);
+                    newText.textContent = message;
+                    newText.setAttribute("font-size", size);
+                    newText.setAttribute("fill", this.cc);
+                    newText.setAttribute("transform", "rotate(" + ROTATE + ") translate(" + TRANSLATEX + " " + TRANSLATEY + ") scale(" + SCALEX + " " + SCALEY + ")");
+                    newText.setAttribute("transform-origin", rotPosX + " " + rotPosY);
+                    newText.classList.add(String(COUNTER));
+                    SVGCANVAS.appendChild(newText);
+                },
+                rect: function(x, y, width, height) {
+                    var newRect = document.createElementNS(xlmns, "rect");
+                    newRect.setAttribute("x", x);
+                    newRect.setAttribute("y", y);
+                    newRect.setAttribute("width", width);
+                    newRect.setAttribute("height", height);
+                    newRect.setAttribute("fill", this.cc);
+                    newRect.setAttribute("stroke", this.cs);
+                    newRect.setAttribute("stroke-width", this.csw);
+                    newRect.setAttribute("transform", "rotate(" + ROTATE + ") translate(" + TRANSLATEX + " " + TRANSLATEY + ") scale(" + SCALEX + " " + SCALEY + ")");
+                    newRect.setAttribute("transform-origin", rotPosX + " " + rotPosY);
+                    newRect.classList.add(String(COUNTER));
+                    SVGCANVAS.appendChild(newRect);
+                },
+                ellipse: function(x, y, width, height) {
+                    var newEllipse = document.createElementNS(xlmns, "ellipse");
+                    newEllipse.setAttribute("cx", x);
+                    newEllipse.setAttribute("cy", y);
+                    newEllipse.setAttribute("rx", width);
+                    newEllipse.setAttribute("ry", height);
+                    newEllipse.setAttribute("fill", this.cc);
+                    newEllipse.setAttribute("stroke", this.cs);
+                    newEllipse.setAttribute("stroke-width", this.csw);
+                    newEllipse.setAttribute("transform", "rotate(" + ROTATE + ") translate(" + TRANSLATEX + " " + TRANSLATEY + ") scale(" + SCALEX + " " + SCALEY + ")");
+                    newEllipse.setAttribute("transform-origin", rotPosX + " " + rotPosY);
+                    newEllipse.classList.add(String(COUNTER));
+                    SVGCANVAS.appendChild(newEllipse);
+                },
+                line: function(x1, y1, x2, y2) {
+                    var newLine = document.createElementNS(xlmns, "line");
+                    newLine.setAttribute("x1", x1);
+                    newLine.setAttribute("y1", y1);
+                    newLine.setAttribute("x2", x2);
+                    newLine.setAttribute("y2", y2);
+                    newLine.setAttribute("stroke", this.cs);
+                    newLine.setAttribute("stroke-width", this.csw);
+                    newLine.setAttribute("transform", "rotate(" + ROTATE + ") translate(" + TRANSLATEX + " " + TRANSLATEY + ") scale(" + SCALEX + " " + SCALEY + ")");
+                    newLine.setAttribute("transform-origin", rotPosX + " " + rotPosY);
+                    newLine.classList.add(String(COUNTER));
+                    SVGCANVAS.appendChild(newLine);
+                },
+                // Cubic Bézier (single shape)
+                bezier: function(x1, y1, x2, y2, x, y) {
+                    var newPath = document.createElementNS(xlmns, "path");
+                    newPath.setAttribute('stroke', this.cs);
+                    newPath.setAttribute('stroke-width', this.csw);
+                    newPath.setAttribute('fill', this.cc);
+                    newPath.setAttribute('d', "C" + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x + " " + y);
+                    newPath.setAttribute("transform", "rotate(" + ROTATE + ") translate(" + TRANSLATEX + " " + TRANSLATEY + ") scale(" + SCALEX + " " + SCALEY + ")");
+                    newPath.classList.add(String(COUNTER));
+                    newPath.setAttribute("transform-origin", rotPosX + " " + rotPosY);
+                    SVGCANVAS.appendChild(cPath);
+                },
+                triangle: function(x1, y1, x2, y2, x3, y3) {
+                    var newPath = document.createElementNS(xlmns, "path");
+                    newPath.setAttribute('stroke', this.cs);
+                    newPath.setAttribute('stroke-width', this.csw);
+                    newPath.setAttribute('fill', this.cc);
+                    newPath.setAttribute('d', "M" + x1 + " " + y1 + "L" + x2 + " " + y2 + "L" + x3 + " " + y3);
+                    newPath.setAttribute("transform", "rotate(" + ROTATE + ") translate(" + TRANSLATEX + " " + TRANSLATEY + ") scale(" + SCALEX + " " + SCALEY + ")");
+                    newPath.setAttribute("transform-origin", rotPosX + " " + rotPosY);
+                    newPath.classList.add(String(COUNTER));
+                    SVGCANVAS.appendChild(newPath);
+                },
+                beginPath: function() {
+                    var newPath = document.createElementNS(xlmns, "path");
+                    newPath.setAttribute('stroke', this.cs);
+                    newPath.setAttribute('stroke-width', this.csw);
+                    newPath.setAttribute('fill', this.cc);
+                    newPath.setAttribute('d', "");
+                    newPath.setAttribute("transform", "rotate(" + ROTATE + ") translate(" + TRANSLATEX + " " + TRANSLATEY + ") scale(" + SCALEX + " " + SCALEY + ")");
+                    newPath.setAttribute("transform-origin", rotPosX + " " + rotPosY);
+                    newPath.classList.add(String(COUNTER));
+                    cPath = newPath;
+                },
+                // Move / Line to
+                vertex: function(x, y) {
+                    var currentPathway = cPath.getAttribute("d");
+                    if (currentPathway === "") {
+                        cPath.setAttribute('d', currentPathway + "M" + x + " " + y);
+                    } else {
+                        cPath.setAttribute('d', currentPathway + "L" + x + " " + y);
+                    }
+                },
+                // Cubic Bézier (multi-shape)
+                cBezierVertex: function(x1, y1, x2, y2, x, y) {
+                    var currentPathway = cPath.getAttribute("d");
+                    cPath.setAttribute('d', currentPathway + "C" + x1 + " " + y1 + " " + x2 + " " + y2 + " " + x + " " + y);
+                },
+                // Several Béziers (cubic)
+                scBezierVertex: function(x2, y2, x, y) {
+                    var currentPathway = cPath.getAttribute("d");
+                    cPath.setAttribute('d', currentPathway + "S" + x2 + " " + y2 + " " + x + " " + y);
+                },
+                // Quadratic Bézier
+                qBezierVertex: function(x1, y1, x, y) {
+                    var currentPathway = cPath.getAttribute("d");
+                    cPath.setAttribute('d', currentPathway + "Q" + x1 + " " + y1 + " " + x + " " + y);
+                },
+                // Several Béziers (quadratic)
+                sqBezierVertex: function(x, y) {
+                    var currentPathway = cPath.getAttribute("d");
+                    cPath.setAttribute('d', currentPathway + "T" + x + " " + y);
+                },
+                endPath: function(end) {
+                    if (end === "END") {
+                        cPath.setAttribute('d', cPath.getAttribute('d') + "Z");
+                    }
+                    SVGCANVAS.appendChild(cPath);
+                    cPath = "";
+                },
+                resetMatrix: function() {
+                    ROTATE = 0;
+                    SCALEX = 1;
+                    SCALEY = 1;
+                    TRANSLATEX = 0;
+                    TRANSLATEY = 0;
+                },
+                translate: function(x, y) {
+                    TRANSLATEX = x;
+                    TRANSLATEY = y;
+                },
+                scale: function(x, y) {
+                    y = y || x;
+                    SCALEX = x;
+                    SCALEY = y;
+                },
+                rotate: function(theta, x, y) {
+                    ROTATE = theta;
+                    rotPosX = x;
+                    rotPosY = y;
+                },
+                // animate: takes a single shape (not multi-shapes) and animates it
+                animate: function(shape, args, anims) {
+                    var newShape;
+                    switch (shape) {
+                        case 'ellipse':
+                            newShape = document.createElementNS(xlmns, "ellipse");
+                            newShape.setAttribute("cx", args[0]);
+                            newShape.setAttribute("cy", args[1]);
+                            newShape.setAttribute("rx", args[2]);
+                            newShape.setAttribute("ry", args[3]);
+                            newShape.setAttribute("fill", this.cc);
+                            newShape.setAttribute("stroke", this.cs);
+                            newShape.setAttribute("stroke-width", this.csw);
+                            newShape.setAttribute("transform", "rotate(" + ROTATE + ") translate(" + TRANSLATEX + " " + TRANSLATEY + ") scale(" + SCALEX + " " + SCALEY + ")");
+                            newShape.setAttribute("transform-origin", rotPosX + " " + rotPosY);
+                            newShape.classList.add(String(COUNTER));
+                            break;
+                        case 'rect':
+                            newShape = document.createElementNS(xlmns, "rect");
+                            newShape.setAttribute("x", args[0]);
+                            newShape.setAttribute("y", args[1]);
+                            newShape.setAttribute("width", args[2]);
+                            newShape.setAttribute("height", args[3]);
+                            newShape.setAttribute("fill", this.cc);
+                            newShape.setAttribute("stroke", this.cs);
+                            newShape.setAttribute("stroke-width", this.csw);
+                            newShape.setAttribute("transform", "rotate(" + ROTATE + ") translate(" + TRANSLATEX + " " + TRANSLATEY + ") scale(" + SCALEX + " " + SCALEY + ")");
+                            newShape.setAttribute("transform-origin", rotPosX + " " + rotPosY);
+                            newShape.classList.add(String(COUNTER));
+                            break;
+                        case 'line':
+                            newShape = document.createElementNS(xlmns, "line");
+                            newShape.setAttribute("x1", args[0]);
+                            newShape.setAttribute("y1", args[1]);
+                            newShape.setAttribute("x2", args[2]);
+                            newShape.setAttribute("y2", args[3]);
+                            newShape.setAttribute("stroke", this.cs);
+                            newShape.setAttribute("stroke-width", this.csw);
+                            newShape.setAttribute("transform", "rotate(" + ROTATE + ") translate(" + TRANSLATEX + " " + TRANSLATEY + ") scale(" + SCALEX + " " + SCALEY + ")");
+                            newShape.setAttribute("transform-origin", rotPosX + " " + rotPosY);
+                            newShape.classList.add(String(COUNTER));
+                            break;
+                        case 'bezier':
+                            newShape = document.createElementNS(xlmns, "path");
+                            newShape.setAttribute('stroke', this.cs);
+                            newShape.setAttribute('stroke-width', this.csw);
+                            newShape.setAttribute('fill', this.cc);
+                            newShape.setAttribute('d', "C" + args[0] + " " + args[1] + " " + args[2] + " " + args[3] + " " + args[4] + " " + args[5]);
+                            newShape.setAttribute("transform", "rotate(" + ROTATE + ") translate(" + TRANSLATEX + " " + TRANSLATEY + ") scale(" + SCALEX + " " + SCALEY + ")");
+                            newShape.setAttribute("transform-origin", rotPosX + " " + rotPosY);
+                            newShape.classList.add(String(COUNTER));
+                    }
+                    for (var i = 0; i < anims.length; i++) {
+                        var newAnimation = document.createElementNS(xlmns, "animate");
+                        newAnimation.setAttribute("attributeName", anims[i][0]);
+                        newAnimation.setAttribute("dur", anims[i][2]);
+                        newAnimation.setAttribute("values", anims[i][1]);
+                        newAnimation.setAttribute("repeatCount", anims[i][3]);
+                        newShape.appendChild(newAnimation);
+                    }
+                    SVGCANVAS.appendChild(newShape);
+                },
+                frameRate: function(spd) {
+                    drawSpeed = spd;
+                }
+            };
+            Canvas.prototype.draw = function(func) {
+                var elements;
+                window.setInterval(function() {
+                    elements = document.getElementsByClassName(COUNTER);
+                    for (var i = elements.length - 1; i >= 0; i--) {
+                        elements[i].remove();
+                    }
+                    func();
+                }, drawSpeed);
+            };
+            //// Holds our operations on the canvas ////
+            Canvas.prototype.drawOn = function(func) {
+                color = this.color, stroke = this.stroke, strokeWeight = this.strokeWeight, path = this.path, ellipse = this.ellipse, rect = this.rect, triangle = this.triangle, line = this.line, vertex = this.vertex, endPath = this.endPath, beginPath = this.beginPath, bezier = this.bezier, cBezierVertex = this.cBezierVertex, qBezierVertex = this.qBezierVertex, scBezierVertex = this.scBezierVertex, sqBezierVertex = this.sqBezierVertex, animate = this.animate, text = this.text, rotate = this.rotate, translate = this.translate, scale = this.scale, resetMatrix = this.resetMatrix, draw = this.draw, frameRate = this.frameRate;
+                color(255, 255, 255);
+                stroke(255, 255, 255);
+                strokeWeight(1);
+                func();
+            };
+            //// Controls our viewpoint of the canvas ////
+            Canvas.prototype.view = function(x, y, w, h) {
+                SVGCANVAS.setAttribute("viewBox", x + " " + y + " " + w + " " + h);
+            };
+            //// Return our canvas class ////
+            return Canvas;
+        })();
+    </script>
     
     <!-- Drawing on SVG Canvases -->
     <script>
@@ -418,6 +714,10 @@
     
     <!-- Java Script: makes webpage interactive -->
     <script type="text/javascript">
+        document.querySelector('#levelBox').addEventListener("change", function() {
+            createLeaderboard(this.value);
+        });
+    
 		/* Switches page */
 		function switchPage(page) {
 		    // hide all pages; then show the current one
