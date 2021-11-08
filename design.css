@@ -1,0 +1,162 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background: #000;
+}
+
+.mButton {
+    position: relative;
+    z-index: 5;
+    display: block;
+    margin: 25px;
+    width: 25vw;
+    margin-left: 37.5vw;
+    margin-bottom: 45px;
+    height: 50px;
+    background: rgb(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 25px;
+}
+
+.mButton:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.mButton:hover:before {
+    opacity: 1;
+}
+
+.mButton:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+body {
+    background-color: rgb(165, 232, 202);
+}
+
+.title {
+    position: relative;
+    z-index: 5;
+    margin-left: 25vw;
+    width: 45vw;
+    font-size: 3vw;
+    padding: 2vw;
+    text-align: center;
+    background: linear-gradient(63deg, rgb(204, 137, 22, 0.1), rgb(204, 137, 22, 1));
+    margin-bottom: 50px;
+}
+
+svg {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#aboutWords {
+    margin-left: 10vw;
+    padding: 15px;
+    width: 75vw;
+    font-size: 25px;
+min-height: 300px;
+    background: linear-gradient(45deg, rgb(219, 146, 37, 0.5), rgb(217, 49, 37, 0.5), rgb(217, 121, 37, 0.5));
+    z-index: 5;
+}
+
+#newsWords, #rulesWords {
+    margin-left: 10vw;
+    padding: 15px;
+    width: 75vw;
+    font-size: 25px;
+min-height: 300px;
+    background: linear-gradient(45deg, rgb(219, 146, 37, 0.5), rgb(217, 49, 37, 0.5), rgb(217, 121, 37, 0.5));
+    z-index: 5;
+}
+
+select {
+    z-index: 5;
+}
+
+#pTable {
+    z-index: 5;
+    margin: 10px;
+    margin-left: 10vw;
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 0px 10px;
+}
+#pTable {
+   overflow-y: scroll;
+   width : 85vw;
+   display: block;
+}
+#pTable td {
+    background-color: rgb(255, 255, 255, 0.1);
+    padding-left: 15px;
+    height : 50px;
+}
+#pTable th {
+    padding-left: 15px;
+    background-color: none;
+}
+#pTable th {
+    width: 40vw;
+}
+.sortHeader {
+    z-index: 5;
+    cursor: pointer;
+    color: rgb(156, 136, 22);
+}
+.sortHeader:hover {
+    color: rgb(255, 141, 79);
+}
+
+#notice {
+    z-index: 5;
+    margin-left: 10vw;
+    padding: 15px;
+    width: 75vw;
+    font-size: 15px;
+    background: linear-gradient(45deg, rgb(219, 146, 37, 0.5), rgb(217, 49, 37, 0.5), rgb(217, 121, 37, 0.5));
+}
+
+#levelBox {
+    z-index: 5;
+    background-color: rgb(135, 95, 16);
+    border-radius: 10px;
+    height: 50px;
+    margin-left: 10vw;
+}
+.challenge {
+    font-style: italic;
+}
