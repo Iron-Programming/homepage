@@ -2,76 +2,66 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Nitro Type BAR0NS</title>
+        <title>Homepage v1.</title>
+        <!-- events.js : array containing the events -->
+    	<script>
+    	    var events = [
+    	        {
+    	            title: "BARON PARTY!",
+    	            miniDescription: "Join the BARONS in friend races for some friendly competition & cash giveaways!",
+    	            fullDescription: "BARON Parties are friend races where everyone on BARON race together. In these parties the party leaders (usually the team captain(s)) give out cash prices--sometimes randomly, sometimes based off skill or dedication. I say team captains because others team captains besides myself (Captain B.) are invited to the BARON PARTY. Although anyone can join, BARON members and members of ALLY TEAMS are the invited racers.",
+    	            startDate: [2021, 11, 12, 1, 0, 0],
+    	            endDate: [2021, 11, 11, 10, 30, 30]
+    	        }
+    	    ];
+    	</script>
+        
+        <!-- Include Google Material Icons -->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+        
+        <!-- Include Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Cuprum:wght@500&family=Luckiest+Guy&family=Bowlby+One+SC&family=Righteous&family=Fredericka+the+Great&display=swap" rel="stylesheet">
+        
+        <!-- main.css : styles the general webpage design -->
         <style>
-            html, body {
+            /* visibility classes */
+            .show {
+                display: block;
+            }
+            .hide {
+                display: none;
+            }
+            html, body, main {
                 margin: 0;
                 padding: 0;
                 width: 100%;
-                height: 100vh;
+                height: 80vh;
                 display: flex;
-                background: #000;
             }
             
-            .mButton {
-                position: relative;
-                z-index: 5;
-                display: block;
-                margin: 25px;
-                width: 25vw;
-                margin-left: 37.5vw;
-                margin-bottom: 45px;
-                height: 50px;
-                background: rgb(0, 0, 0, 0.5);
-                color: white;
-                border: none;
-                border-radius: 25px;
+            main {
+                overflow-y: scroll;
+            }
+            main::-webkit-scrollbar {
+                display: none; /* for Chrome, Safari, and Opera */
             }
             
-            .mButton:before {
-                content: '';
-                background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-                position: absolute;
-                top: -2px;
-                left:-2px;
-                background-size: 400%;
-                z-index: -1;
-                filter: blur(5px);
-                width: calc(100% + 4px);
-                height: calc(100% + 4px);
-                animation: glowing 20s linear infinite;
-                opacity: 0;
-                transition: opacity .3s ease-in-out;
-                border-radius: 10px;
+            h1 {
+                font-family: 'Fredericka the Great', cursive;
+                letter-spacing: 0.2em;
             }
             
-            .mButton:hover:before {
-                opacity: 1;
+            h2, h3, h4, h5, h6 {
+                font-family: 'Luckiest Guy', cursive;
             }
             
-            .mButton:after {
-                z-index: -1;
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                left: 0;
-                top: 0;
-                border-radius: 10px;
-            }
-            
-            @keyframes glowing {
-                0% { background-position: 0 0; }
-                50% { background-position: 400% 0; }
-                100% { background-position: 0 0; }
-            }
-            body {
-                background-color: rgb(165, 232, 202);
+            p, button, select, span {
+                font-family: 'Cuprum', sans-serif;
             }
             
             .title {
                 position: relative;
-                z-index: 5;
+                z-index: 2;
                 margin-left: 25vw;
                 width: 45vw;
                 font-size: 3vw;
@@ -88,170 +78,360 @@
                 z-index: 0;
                 pointer-events: none;
             }
-            
-            #aboutWords {
-                margin-left: 10vw;
-                padding: 15px;
-                width: 75vw;
-                font-size: 25px;
-		min-height: 300px;
-                background: linear-gradient(45deg, rgb(219, 146, 37, 0.5), rgb(217, 49, 37, 0.5), rgb(217, 121, 37, 0.5));
-                z-index: 5;
-            }
-            
-            #newsWords, #rulesWords {
-                margin-left: 10vw;
-                padding: 15px;
-                width: 75vw;
-                font-size: 25px;
-		min-height: 300px;
-                background: linear-gradient(45deg, rgb(219, 146, 37, 0.5), rgb(217, 49, 37, 0.5), rgb(217, 121, 37, 0.5));
-                z-index: 5;
-            }
-            
-            select {
-                z-index: 5;
-            }
-            
-            #pTable {
-                z-index: 5;
-                margin: 10px;
-                margin-left: 10vw;
-                text-align: left;
-                border-collapse: separate;
-                border-spacing: 0px 10px;
-            }
-            #pTable {
-               overflow-y: scroll;
-               width : 85vw;
-               display: block;
-            }
-            #pTable td {
-                background-color: rgb(255, 255, 255, 0.1);
-                padding-left: 15px;
-                height : 50px;
-            }
-            #pTable th {
-                padding-left: 15px;
+        </style>
+        
+        <!-- footer.css : styles the footer -->
+        <style>
+            footer {
+                position: fixed;
                 background-color: none;
+                z-index: 3;
             }
-            #pTable th {
-                width: 40vw;
+            
+            #NTBARONS {
+                background-color: rgb(168, 168, 168);
+                margin: 2%;
+                width: 19%;
+                border-radius: 0px;
+                transition: border-radius 0.5s ease-in-out;
+                float: left;
             }
-            .sortHeader {
-                z-index: 5;
+            #NTBARONS:hover {
                 cursor: pointer;
-                color: rgb(156, 136, 22);
-            }
-            .sortHeader:hover {
-                color: rgb(255, 141, 79);
+                border-radius: 25px 0px 25px 0px;
+                transition: border-radius 0.5s ease-in-out;
             }
             
-            #notice {
-                z-index: 5;
-                margin-left: 10vw;
-                padding: 15px;
-                width: 75vw;
-                font-size: 15px;
-                background: linear-gradient(45deg, rgb(219, 146, 37, 0.5), rgb(217, 49, 37, 0.5), rgb(217, 121, 37, 0.5));
+            #NTBARONS #NT {
+                font-family: 'Fredericka the Great', cursive;
+                font-size: 3em;
+                
+            }
+            #NTBARONS #BARONS {
+                font-family: 'Bowlby One SC', cursive;
+                font-size: 1em;
+                pointer-events: none;
             }
             
-            #levelBox {
-                z-index: 5;
-                background-color: rgb(135, 95, 16);
-                border-radius: 10px;
-                height: 50px;
-                margin-left: 10vw;
+            #nav {
+                background-color: rgb(255, 255, 255, 0.2);
+                float: left;
+                margin-left: 2vw;
+                margin-right: 2vw;
+                width: 50%;
+                height: 100%;
             }
-            .challenge {
-                font-style: italic;
+            
+            #nav button {
+                background-color: rgb(0, 0, 0, 0.1);
+                color: rgb(184, 142, 43);
+                width: 23.4vw;
+                height: 6vh;
+                margin: 1.2%;
+                margin-top: 10px;
+            }
+            #nav button:hover {
+                transform: scale(1.05);
+            }
+            
+             
+            #NTALLIES {
+                background-color: rgb(168, 168, 168);
+                margin: 2%;
+                float: right;
+                width: 19%;
+                border-radius: 0px;
+                transition: border-radius 0.5s ease-in-out;
+            }
+            #NTALLIES:hover {
+                cursor: pointer;
+                border-radius: 25px 0px 25px 0px;
+                transition: border-radius 0.5s ease-in-out;
+            }
+            
+            #NTALLIES #OUR {
+                font-family: 'Fredericka the Great', cursive;
+                font-size: 3em;
+            }
+            #NTALLIES #ALLIES {
+                font-family: 'Bowlby One SC', cursive;
+                font-size: 1em;
+                pointer-events: none;
+            }
+        </style>
+        
+        <!-- pages.css : styles the different pages -->
+        <style>
+            .page {
+                width: 100%;
+                background: rgb(255, 255, 255);
+            }
+            /* overule backgorund color for homepage */
+            #home {
+                background: rgb(110, 216, 245);
+            }
+            
+            #transitionCanvas {
+                z-index: 2;
+            }
+            
+            .page h3 {
+                margin-left: 8%;
+                margin-bottom: 5px;
+            }
+            .page p, .page ul, .page ol {
+                margin: 5px;
+                margin-left: 8%;
+                margin-right: 8%;
+            }
+        </style>
+        
+        <!-- file.css to style the events page -->
+        <style>
+              .cHeader {
+                  margin-left: 10%;
+                  font-size: 20px;
+                  margin-bottom: 5px;
+              }
+              .eventContainer {
+                  width: 80%;
+                  height: 175px;
+                  background-color: rgb(153, 153, 153);
+                  margin: 0px 0px 0px 9%;
+                  overflow-x: scroll;
+                  overflow-y: hidden;
+                  white-space: nowrap;
+                  overflow-x: hidden; /* Hide horizontal scrollbar */
+              }
+              .event {
+                  background-color: rgb(184, 175, 184);
+                  width: 175px;
+                  height: 166px;
+                  border: 2px solid black;
+                  margin: 2px;
+                  display: inline-block;
+              }
+              .noEvents {
+                  color: rgb(255, 255, 255);
+                  font-weight: bold;
+                  font-style: italic;
+                  position: relative;
+                  top: 120px;
+                  left: -15px;
+              }
+              .eventTitle {
+                  text-align: center;
+                  width: 100%;
+                  height: 146px;
+                  margin: 0px;
+                  margin-bottom: -131px;
+                  padding: 10px 0px 10px 0px;
+                  background-color: rgb(168, 163, 168);
+                  color: rgb(0, 0, 0);
+                  letter-spacing: 2px;
+              }
+              .eventTitle:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                  color: rgb(120, 81, 18);
+              }
+              .eventDescription {
+                  height: 85px;
+                  width: 90%;
+                  white-space: normal;
+                  margin-top: -10px;
+                  pointer-events: none;
+              }
+              
+              .days, .hours, .minutes, .seconds{
+                  color: rgb(255, 255, 255);
+              }
+              .date {
+                  font-style: italic;
+                  color: rgb(255, 255, 255);
+              }
+              
+              #selectedEvent .days, #selectedEvent .hours, #selectedEvent .minutes, #selectedEvent .seconds{
+                  color: rgb(255, 136, 0);
+              }
+              #returnToEvents {
+                  background-color: rgb(222, 135, 36);
+                  padding: 10px;
+                  border: 2px solid black;
+                  margin-left: 9%;
+                  width: 200px;
+              }
+              #returnToEvents:hover {
+                  cursor: pointer;
+                  background-color: rgb(171, 96, 34);
+              }
+              
+              #eventTitle {
+                  margin-left: 9%;
+                  margin-bottom: -15px;
+                  font-size: 50px;
+              }
+              #date {
+                  font-style: italic;
+                  color: rgb(204, 147, 78);
+                  margin-left: 1%;
+              }
+              #eventDescription {
+                  margin: 25px;
+                  margin-left: 9%;
+                  width: 79%;
+                  padding: 2%;
+                  background-color: rgb(189, 189, 189, 0.3);
+              }
+        </style>
+        
+        <!-- file.css to style the allies page -->
+        <style>
+            .allyList {
+                background-color: rgb(158, 158, 158);
+                border: 2px solid black;
+                margin: 25px 25px 25px 10%;
+                width: 30%;
+                float: left;
+                height: 300px;
+                box-shadow: 10px 5px 5px rgb(97, 90, 97, 0.5);
+            }
+            .allyList h3 {
+                font-size: 3vw;
+                margin-top: 15px;
+            }
+            .eachAlly li {
+                margin-left: -35%;
+                list-style-type: none;
+                text-align: left;
+                border-bottom: 2px solid black;
+                margin-bottom: 10px;
+            }
+            .eachAlly li a {
+                color: rgb(163, 98, 0);
+                font-size: 3vw;
             }
         </style>
     </head>
+    
+    <!-- HTML Body -->
     <body>
+    
+        <!-- The main content of the webpage -->
+        <main>
+            <!-- Home -->
+            <div class="page" id="home">
+                <h1 class="title">NITRO TYPE BARONS</h1>
+                <div id="menuCanvas"></div>
+            </div>
+            
+            <!-- About Page -->
+            <div class="page" id="about">
+                <h1 class="title">ABOUT THE BARONS</h1>
+                
+                <h3>What We Are</h3>
+                <p>The BARONS are a Team on Nitro Type that loves to type! We Barons do our best to set a standard for good typers: both in sport and in behvaior!<br>Our captain is Captain B., the leader of the barons. Captain B. does his best to make to make team BARON a fun experience for everyone!<br>On BARON, we have an account called OfficerBaron. This account is a shared account for the sole purpose of posting MotDs (you aren't really supposed to race on it, unless you are trying to invite more racers to BARON). Add "_OFBAR?" to the end of your name if you are a new member who wants the credentials to log into the account.<br>On BARON, we have many fun activities that we like to do. To check out upcoming events, check out the EVENT/CALENDAR page! Here is a list of our activities:</p>
+                <ul>
+                    <li><strong>Good Deed Sessions</strong> &#8594; A good deed session is an act of kindness--we barons love to make others happy by giving them gifts! The standard good deed session is when all the gold members give at least 100,000 to a member, just to be nice! Any member on BARON can suggest a member to be the "victim", and if I approve, then everyone on BARON is obliged to give the victim at least 100,000 if possible.</li>
+                    <li><strong>Competitions / Challenges</strong> &#8594; Like most teams on Nitro Type, the BARONS love to participate in competitions to earn fun rewards! These challenges could be based upon speed, accuracy, points, or races. Any member is allowed to post a competition of Gold/Cash/Real-Life-Cash. Captain B. only gives out Nitro Type Cash rewards, but sometimes his other officers or members give Gold or Real-Life_Cash comps. Check the events tab for the current competitions!</li>
+                    <li><strong>Team Smashup</strong> &#8594; Team Smashups are events when 1 or more other teams compete against the BARONs head on in a special competition! The losing team would have to give the winning team some rewards, such as cash!</li>
+                    <li><strong>BARON Party Time!</strong> &#8594; BARON party time is a special event when the BARONs join friend races. Until the first BARON Party Events happens, the exact details on this will remain hidden!!!</li>
+                </ul>
+                <h3>Rules of Decorum</h3>
+                <p>To join BARON, you will need to agree to each of the following conditions:</p>
+                <ul>
+                    <li>I will not cheat in any way: this means no using bots or shared accounts (to race) to get an advantage over others.</li>
+                    <li>If I ever post MotDs or other messages, I will be respectful, honest, kind, and I will not use profane or crude words.</li>
+                    <li>My name will not include any crude or profrane words.</li>
+                    <li>When using the OfficerBaron account (the username is "thebestbaron"), I will respect the following terms: (1.) I will sign my posts with my name. (2.) I will not change the password of the account, even if I get kicked off BARON and get irritated because of that. (3.) I will not change the name of the account. (4.) I will not race on the account, except for the reason of finding more racers to invite to BARON.</li>
+                    <li>As a BARON, I love helping working hard and helping others out. Note: If you can't meet the BARON's daily race requirements on a consistent basis, consider leaving BARON for a while until you can at least get close to the daily requirements.</li>
+                </ul>
+            </div>
+            
+            <!-- Events -->
+            <div class="page" id="events">
+                <h1 class="title">BARON EVENTS</h1>
+                
+                <div id="eventSelection">
+                    <h5 class="cHeader">Current Events</h5>
+                    <div id="currentEvents" class="eventContainer">
+                    </div>
+                    
+                    <h5 class="cHeader">Calendar: Upcoming Events</h5>
+                    <div id="upComingEvents" class="eventContainer">
+                        
+                        
+                    </div>
+                </div>
+                
+                <div id="selectedEvent">
+                    <h4 id="eventTitle">Event Title</h4>
+                    <p id="date"><span>11/15/21</span> - Starts in <span id="days">1</span>D:<span id="hours">5</span>H:<span id="minutes">12</span>M:<span id="seconds">1</span>S</p>
+                    <p id="eventDescription">This is an event description.</p>
+                    <button onclick="returnToEvents()" id="returnToEvents">Return to Event List</button>
+                </div>
+            </div>
+            
+            <!-- Leaderboards -->
+            <div class="page" id="leaderboards">
+                <h1 class="title">LEADERBOARDS</h1>
+    	        <p>As of right now, BARON does not have its own personal leaderboards. Until Captain B. is able to accomplish this feat, check out the following leaderboards!</p>
+    	        <ul>
+    	            <li><a target="_blank" href="https://www.nitrotype.com/leaderboards">Official NT 7-Day Team Leaderboard</a></li>
+    	            <li><a target="_blank" href="https://docs.google.com/spreadsheets/d/1M_5hmBgVos6MYrvFuNN-X8lnAgDEJNv2IMUq4ED8dbo/edit#gid=2097484573">Racer and Team Leaderbaords by D1sRuPti0n#4708</a></li>
+    	            <li><a target="_blank" href="https://goldbonycloudcomputing.adl212.repl.co/">Comp Tracker to make Team Competitions</a></li>
+    	        </ul>
+            </div>
+            
+            <!-- Allies -->
+            <div class="page" id="alliesPage">
+                <h1 class="title">FRIENDS OF BARON</h1>
+                <h3>Our Friends</h3>
+    	        <p>We BARONS like many friends with other teams. As you can see below, we have made different types of allies. <em>ALLIES de AMICUS</em> are normal allies that many teams on NT have. These allies are basically a league of friendship. <em>ALLIES de FIDUS</em> are ally teams that participate in some of our special events. This includes BARON Parties and BARON Deeds.<br>Want to ally with the BARONS? Send an alt to <em><a target="_blank" href="https://www.nitrotype.com/team/BAR0N">The League</a></em>, which is the meeting place of BARON allies. You can request to be allies there.</p>
+    	        
+    	        <div class="allyList">
+    	            <h3>ALLIES de FIDUS</h3>
+    	            <ul class="eachAlly">
+    	                <li><a target="_blank" href="https://www.nitrotype.com/team/SMA5H">SMA5H</a>: To Be Verified</li>
+    	                <li><a target="_blank" href="https://www.nitrotype.com/team/DRPT">DRPT</a>: To be Verified</li>
+    	            </ul>
+    	        </div>
+    	        
+    	        <div class="allyList">
+    	            <h3>ALLIES de AMICUS</h3>
+    	            <ul class="eachAlly">
+    	                <li><a target="_blank" href="https://www.nitrotype.com/team/AGNCY">AGNCY</a></li>
+    	                <li><a target="_blank" href="https://www.nitrotype.com/team/PAWS">PAWS</a>: To be verified</li>
+    	                <li><a target="_blank" href="https://www.nitrotype.com/team/TBZ">TBZ</a>: To be Verified</li>
+    	                <li><a target="_blank" href="https://www.nitrotype.com/team/LDT">LDT</a>: To be Verified</li>
+    	                <li><a target="_blank" href="https://www.nitrotype.com/team/GXT">GXT</a>: To be Verified</li>
+    	            </ul>
+    	        </div>
+            </div>
+        </main>
         
-	<div id="menuCanvas"></div>    
-	    
-        <!-- Menu -->
-        <div class="page" id="menu">
-            <h1 class="title">NITRO TYPE BARONS</h1>
-            <button class="mButton" onClick="switchPage('about')">About</button>
-            <button class="mButton" onClick="switchPage('news')">News</button>
-            <button class="mButton" onClick="switchPage('rules')">Rules</button>
+        <!-- Footer -->
+        <footer>
+            <div id="footerCanvas"></div> 
             
-        </div>
+            <a target="_blank" href="https://www.nitrotype.com/team/BARON"><button id="NTBARONS"><span id="NT">NT</span><br><span id="BARONS">BARONS</span></button></a>
+            <a href="javascript:switchPage('alliesPage');" title="Home"><button id="NTALLIES"><span id="OUR">OUR</span><br><span id="ALLIES">ALLIES</span></button></a>
+            
+            <div id="nav">
+                <a href="javascript:switchPage('home');" title="Home"><button id="homeButton"><span class="material-icons">home</span></button></a>
+                <a href="javascript:switchPage('about');" title="About"><button class="navButton" id="rulesButton"><span class="material-icons">article</span></button></a>
+                <a href="javascript:switchPage('leaderboards');" title="Leaderboards"><button class="navButton" id="leaderboardsButton"><span class="material-icons">leaderboard</span></button></a>
+                <a href="javascript:switchPage('events');" title="Events"><button class="navButton" id="eventsButton"><span class="material-icons">event</span></button></a>
+            </div>
+        </footer>
         
-        <!-- About -->
-        <div class="page" id="about">
-            <h1 class="title">ABOUT BAR0N</h1>
-            
-            
-            <p id="aboutWords">Howdy ya'll, and welcome to team BAR0N! Team BAR0N is a fast, competitive, & friendly team that loves to race! We are composed of veteran and beginner typist alike.<br>Our captain is <strong>Captain B.</strong>, and he is helped by his <strong>co-caps</strong>, who are elected officers. Additionally, the whole team gets to use the account "Officer Baron" to post MotD's.<br>Please check the NEWS page for the current challenges/important messages, and the RULES page for the rules of being a part of BAR0N.<br>BAR0N has competitions, cash giveaways (good deeds), and more!</p>
-            <button class="mButton" onClick="switchPage('menu')">Menu</button>
-            
-            <div id="aboutCanvas"></div>
-        </div>
-        
-        <!-- News -->
-        <div class="page" id="news">
-            <h1 class="title">BAR0N NEWS</h1>
-            
-            <p id="newsWords">NITRO TYPE BAR0NS HOMEPAGE has been released! Check out the current challenges below!<br>
-		    <span class="challenge">(1.) Hosted by <a target="_blank" href="https://www.nitrotype.com/racer/abu10">Neb</a>: Do 5,000 team races! First place earns 50M, second place earns 25M, and third place earns 10M.</span>
-                <span class="challenge"><br>(2.) ??? Unknown (Coming Next Season)</span>
-                <span class="challenge"><br><br>Have spare cash? Announce a comp using the "Officer Baron" account! Note that I only list big comps here. 100K comps are often ran during the day for fun.</span>
-            </p>
-		
-            <button class="mButton" onClick="switchPage('menu')">Menu</button>
-            
-            <div id="newsCanvas"></div>
-        </div>
-        
-        <!-- Rules -->
-        <div class="page" id="rules">
-            <h1 class="title">BAR0N RULES</h1>
-            
-            <!--<div id="scoringRubric"></div>
-            
-            <p id="notice">This are the best of the BAR0NS! I will give cash to these racers occassionally (check the news to see when)! Use the drop-down button below to sort by speed/season-points/team-races.<br></p>
-            
-            <select name="levelBox" id="levelBox">
-              <option value="seasonPoints">Season Points</option>
-              <option value="teamRaces">Team Races</option>
-              <option value="speed">Speed (WPM)</option>
-            </select>
-            
-            <table id="pTable">
-                <thead>
-                    <tr>
-                        <th id="nameCol"><span onClick="sortTeams(0)" class="sortHeader" id="sortByTeam">Name</span></th>
-                        <th><span onClick="sortTeams(1)" class="sortHeader" id="sortByThing">Fastest Racers</span></th>
-                    </tr>
-                </thead>
-                <tbody id="participants">
-                    <tr>
-                        <td>Person 1</td>
-                        <td>Value 1</td>
-                    </tr>
-                    <tr>
-                        <td>Person 2</td>
-                        <td>Value 2</td>
-                    </tr>
-                    <tr>
-                        <td>Person 3</td>
-                        <td>Value 3</td>
-                    </tr>
-                </tbody>
-            </table>-->
-           
-	    <p id="rulesWords">The rules of BAR0N are not complicated: you must have good netiquette, have a name that isn't inappropriate, respect everyone on the team, be nice, and have fun! <br>Additionally, we use the account "Officer Baron" to post Motd's, so once you learn the password you can post a MotD: make sure to sign your messages!</p>
-            
-            <button class="mButton" onClick="switchPage('menu')">Menu</button>
-            
-            <div id="menuCanvas"></div>
-        </div>
+        <div id="transitionCanvas"></div>
     </body>
     
+    <!-- SVG Graphics Engine in Java Script -->
+    <script src="https://cdn.jsdelivr.net/gh/Iron-Programming/SVG-Graphics-Library@latest/script.js"></script>
+    
+    <!-- leaderboards.js : controls the competition --> 
     <script>
         var leaderboards = {
             "speed" : [
@@ -344,139 +524,611 @@
             }
     </script>
     
-    <!-- SVG Graphics Engine in Java Script -->
-    <script src="https://cdn.jsdelivr.net/gh/Iron-Programming/SVG-Graphics-Library@latest/script.js"></script>
-    
-    <!-- Drawing on SVG Canvases -->
+    <!-- setup.js : setups our webpage -->
     <script>
-        var canvas = new Canvas("canvas", window.innerWidth, window.innerHeight, "#menuCanvas");
-            canvas.drawOn(function() {
-                var width = window.innerWidth,
-                    height = window.innerHeight;
-                
-                function diamond(x, y, w, h) {
-                    color(0, 0, 200);
-                    strokeWeight(2);
-                    stroke(75, 175, 255);
-                    beginPath();
-                    vertex(x - w/2, y);
-                    vertex(x, y - h/2);
-                    vertex(x + w/2, y);
-                    vertex(x, y + h/2);
-                    endPath("END");
-                    color(0, 0, 200, 0.3);
-                    strokeWeight(0);
-                    animate("ellipse", [x, y, w/1.5, h/1.5], [
-                        ["rx", (w/1.5 + ";" + w/1.4 + ";" + w/1.5), "1s", "indefinite"],
-                        ["ry", (h/1.5 + ";" + h/1.4 + ";" + h/1.5), "1s", "indefinite"]
-                    ]);
-                }
-                function bag(x, y, w, h) {
-                    strokeWeight(0);
-                    color(133, 102, 22);
-                    ellipse(x, y + h/8, w/1.5, h/1.5);
-                    ellipse(x, y - h/2, w/2, h/3);
-                    color(0, 255, 0);
-                    text("$", x - 5, y + 12, 25)
-                }
-                function ruby(x, y, w, h) {
-                    strokeWeight(0);
-                    color(200, 0, 0);
-                    triangle(x - w/3, y - h/4.5, x + w/3, y - h/4.5, x, y + h/2);
-                    color(255, 0, 0);
-                    triangle(x - w/3, y - h/4.5, x + w/3, y - h/4.5, x, y - h/2);
-                    color(225, 0, 0);
-                    triangle(x + w/2, y - h/2, x + w/3, y - h/4.5, x, y - h/2);
-                    triangle(x - w/3, y - h/4.5, x - w/2, y - h/2, x, y - h/2);
-                    triangle(x - w/3, y - h/4.5, x - w/2, y - h/2, x, y - h/2);
-                    color(170, 0, 0);
-                    triangle(x + w/1.3, y - h/4.5, x + w/3, y - h/4.5, x, y + h/2);
-                    color(235, 0, 0);
-                    triangle(x - w/3, y - h/4.5, x - w/1.3, y - h/4.5, x, y + h/2);
-                    color(245, 0, 0);
-                    triangle(x + w/2, y - h/2, x + w/3, y - h/4.5, x + w/1.3, y - h/4.5);
-                    color(200, 0, 0);
-                    triangle(x - w/3, y - h/4.5, x - w/2, y - h/2, x - w/1.3, y - h/4.5);
-                }
-                
-                
-                var time = 0;
-                
-                var goodies = [], types = ['diamond', 'ruby', 'bag'];
-                goodies.push({
-                    x: Math.random() * width,
-                    y: -25,
-                    type: types[Math.floor(Math.random()*3)]
-                });
-                
-                frameRate(10);
-                
-                draw(function() {
-                    for (var i = goodies.length - 1; i >= 0; i--) {
-                        rotate(time * 5, goodies[i].x, goodies[i].y);
-                        goodies[i].y += 3;
-                        switch (goodies[i].type) {
-                            case 'diamond':
-                                diamond(goodies[i].x, goodies[i].y, 20, 30);
-                            break;
-                            case 'ruby':
-                                ruby(goodies[i].x, goodies[i].y, 25, 30);
-                            break;
-                            case 'bag':
-                                bag(goodies[i].x, goodies[i].y, 30, 30);
-                        }
-                        
-                        if (goodies[i].y > height) {
-                            goodies.splice(i, 1);
-                        }
-                    }
-                    
-                    time++;
-                    
-                    if (time % 25 === 0) {
-                        var type = 
-                        goodies.push({
-                            x: Math.random() * width,
-                            y: -25,
-                            type: types[Math.floor(Math.random()*3)]
-                        });
-                    }
-                });
+        var canvas = new Canvas("canvas1", window.innerWidth, window.innerHeight, "#menuCanvas");
+        canvas.drawOn(function() {
+            var width = window.innerWidth,
+                height = window.innerHeight;
+            
+            function diamond(x, y, w, h) {
+                color(0, 0, 200);
+                strokeWeight(2);
+                stroke(75, 175, 255);
+                beginPath();
+                vertex(x - w/2, y);
+                vertex(x, y - h/2);
+                vertex(x + w/2, y);
+                vertex(x, y + h/2);
+                endPath("END");
+                color(0, 0, 200, 0.3);
+                strokeWeight(0);
+                animate("ellipse", [x, y, w/1.5, h/1.5], [
+                    ["rx", (w/1.5 + ";" + w/1.4 + ";" + w/1.5), "1s", "indefinite"],
+                    ["ry", (h/1.5 + ";" + h/1.4 + ";" + h/1.5), "1s", "indefinite"]
+                ]);
+            }
+            function bag(x, y, w, h) {
+                strokeWeight(0);
+                color(133, 102, 22);
+                ellipse(x, y + h/8, w/1.5, h/1.5);
+                ellipse(x, y - h/2, w/2, h/3);
+                color(0, 255, 0);
+                text("$", x - 5, y + 12, 25)
+            }
+            function ruby(x, y, w, h) {
+                strokeWeight(0);
+                color(200, 0, 0);
+                triangle(x - w/3, y - h/4.5, x + w/3, y - h/4.5, x, y + h/2);
+                color(255, 0, 0);
+                triangle(x - w/3, y - h/4.5, x + w/3, y - h/4.5, x, y - h/2);
+                color(225, 0, 0);
+                triangle(x + w/2, y - h/2, x + w/3, y - h/4.5, x, y - h/2);
+                triangle(x - w/3, y - h/4.5, x - w/2, y - h/2, x, y - h/2);
+                triangle(x - w/3, y - h/4.5, x - w/2, y - h/2, x, y - h/2);
+                color(170, 0, 0);
+                triangle(x + w/1.3, y - h/4.5, x + w/3, y - h/4.5, x, y + h/2);
+                color(235, 0, 0);
+                triangle(x - w/3, y - h/4.5, x - w/1.3, y - h/4.5, x, y + h/2);
+                color(245, 0, 0);
+                triangle(x + w/2, y - h/2, x + w/3, y - h/4.5, x + w/1.3, y - h/4.5);
+                color(200, 0, 0);
+                triangle(x - w/3, y - h/4.5, x - w/2, y - h/2, x - w/1.3, y - h/4.5);
+            }
+            
+            
+            var time = 0;
+            
+            var goodies = [], types = ['diamond', 'ruby', 'bag'];
+            goodies.push({
+                x: Math.random() * width,
+                y: -25,
+                type: types[Math.floor(Math.random()*3)]
             });
-    </script>
-	
-    <!-- JQUERY LIBRARY -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-    <script>
-    //alert('d');
-	$.getJSON("https://www.nitrotype.com/api/scoreboard?time=season&callback=?", function(data) {
-            alert('x')
+            
+            frameRate(10);
+            
+            
+            var time = 0;
+            var lines = [];
+            for (var i = 0; i < 5; i++) {
+                var y = i*50;
+                lines.push([width/2, height/1.75 + 1 + y]);
+            }
+            
+            var signs = [];
+            signs.push({
+                x : width/2 + ((Math.round(Math.random()) == 0) ? (-30) : (30)),
+                y : height/1.75 + 1
+            });
+            
+            var clouds = [];
+            for (var i = 0; i < 10; i++) {
+                clouds.push({
+                    x: Math.random()*width,
+                    y: 100 + Math.random()*height/3,
+                    xVel: Math.max(0.5, Math.random()*2)-1
+                })
+            }
+            
+            draw(function() {
+                /*for (var i = goodies.length - 1; i >= 0; i--) {
+                    rotate(time * 5, goodies[i].x, goodies[i].y);
+                    goodies[i].y += 3;
+                    switch (goodies[i].type) {
+                        case 'diamond':
+                            diamond(goodies[i].x, goodies[i].y, 20, 30);
+                        break;
+                        case 'ruby':
+                            ruby(goodies[i].x, goodies[i].y, 25, 30);
+                        break;
+                        case 'bag':
+                            bag(goodies[i].x, goodies[i].y, 30, 30);
+                    }
+                    
+                    if (goodies[i].y > height) {
+                        goodies.splice(i, 1);
+                    }
+                }
+                
+                time++;
+                
+                if (time % 25 === 0) {
+                    var type = 
+                    goodies.push({
+                        x: Math.random() * width,
+                        y: -25,
+                        type: types[Math.floor(Math.random()*3)]
+                    });
+                }*/
+                
+                //rgb(37, 171, 22)
+                
+                color(40, 170, 20);
+                rect(0, height/1.75, width, height/1.75)
+                color(150, 150, 150);
+                beginPath();
+                vertex(width/2 - 25, height/1.75);
+                vertex(width/2 + 25, height/1.75);
+                vertex(width, height);
+                vertex(0, height);
+                vertex(width/2 - 25, height/1.75);
+                endPath("END");
+                
+                time++;
+                
+                // pavement markings
+                stroke(173, 153, 22);
+                for (var i = lines.length - 1; i >= 0; i--) {
+                    var x = lines[i][0], y = lines[i][1];
+                    strokeWeight(2 + -height/18 + y/10);
+                    line(x, y, x, y + 5 + (y - height/2)/8);
+                    
+                    lines[i][1]++;
+                    if (lines[i][1] > (height - height/6)) {
+                        lines.splice(i, 1);
+                    }
+                }
+                if (time % 50 === 0) {
+                    lines.push([width/2, height/1.75 + 1]);
+                }
+                
+                // signs
+                for (var i = signs.length - 1; i >= 0; i--) {
+                    var y = signs[i].y, x = signs[i].x;
+                    stroke(0, 0, 0);
+                    strokeWeight(5);
+                    
+                    var yDis = (y - height/1.75)/1.5 + 10;
+                    line(x, y, x, y - yDis);
+                    stroke(0);
+                    color(255, 255, 255);
+                    rect(x - yDis/4, y - yDis, yDis/2, yDis/2)
+                    color(0, 0, 0);
+                    text("GO!", x - yDis/6, y - yDis/1.4, Math.max(0, yDis/5));
+                    
+                    
+                    signs[i].y += 1;
+                    signs[i].x += (((signs[i].x - width/2) > 0) ? 1 : -1)*(width/height);
+                    if (signs[i].y > height + 200) {
+                        signs.splice(i, 1);
+                    }
+                }
+                if (time % 500 === 0) {
+                    signs.push({
+                        x : width/2 + ((Math.round(Math.random()) == 0) ? (-30) : (30)),
+                        y : height/1.75 + 1
+                    });
+                }
+                
+                stroke(0);
+                color(255, 255, 255);
+                for (var i = 0; i < clouds.length; i++) {
+                    var x = clouds[i].x, y = clouds[i].y;
+                    ellipse(x, y, 60, 20);
+                    ellipse(x + 5, y - 5, 30, 30);
+                    ellipse(x - 5, y + 5, 30, 30);
+                    
+                    clouds[i].x += clouds[i].xVel;
+                    if (clouds[i].x < -70 && clouds[i].xVel < 0) {
+                        clouds[i].x = width + 100;
+                        clouds[i].y = Math.random()*height/3 + 100;
+                    } else if (clouds[i].x > width + 100 && clouds[i].xVel > 0) {
+                        clouds[i].x = -100;
+                        clouds[i].y = Math.random()*height/3 + 100;
+                    }
+                }
+                
+                stroke(0);
+            });
+        });
+        
+        var canvasFooter = new Canvas("canvas2", window.innerWidth, window.innerHeight, "#footerCanvas");
+        canvasFooter.drawOn(function() {
+            var width = window.innerWidth,
+                height = window.innerHeight;
+            
+            
+            frameRate(10);
+            
+            draw(function() {
+                
+                /** Draw Footer **/
+                resetMatrix();
+                //rgb(38, 36, 31)
+                color(107, 105, 99);
+                rect(0, height - height/6, width, height/6);
+                color(38, 36, 31);
+                triangle(0, height - height/6, width/10, height - height/6, 0, height - height/3.5);
+                triangle(width, height - height/6, width - width/10, height - height/6, width, height - height/3.5);
+                
+                color(69, 67, 60);
+                triangle(0, height - height/6, width/5, height - height/6, 0, height - height/4.5);
+                triangle(width, height - height/6, width - width/5, height - height/6, width, height - height/4.5);
+        });
+        
+        });
+        
+        var footer = document.getElementsByTagName('footer')[0];
+        footer.style.width = window.innerWidth + "px";
+        footer.style.height = window.innerHeight/6 + "px";
+        footer.style.bottom = "0px";
+        
+        
+        
+        /** Add the transition on top of everything else **/
+        var transitionCanvas = new Canvas("canvas3", window.innerWidth, window.innerHeight, "#transitionCanvas");
+        
+        var transitioning = false,
+            halfwayTransition = false,
+            scaleFactor = 0.001,
+            transitionFunction = function() {};
+        
+        transitionCanvas.drawOn(function() {
+            var width = window.innerWidth,
+                height = window.innerHeight;
+            
+            
+            frameRate(10);
+            
+            draw(function() {
+                
+                if (!transitioning) { return; }
+                
+                /** Draw Footer **/
+                
+                if (!halfwayTransition) {
+                    scale(1, scaleFactor += (1 - scaleFactor)/20)
+                } else {
+                    scale(1, scaleFactor += (0 - scaleFactor)/20)
+                }
+                
+                if (1 - scaleFactor <= 0.001 && !halfwayTransition) {
+                    halfwayTransition = true;
+                    transitionFunction();
+                } else if (scaleFactor <= 0.001 && halfwayTransition) {
+                    halfwayTransition = false;
+                    transitionFunction = function () {};
+                    scaleFactor = 0.001
+                    transitioning = false;
+                }
+                
+                //rgb(135, 135, 135)
+                color(92, 88, 79);
+                stroke(0);
+                
+                beginPath();
+                vertex(0, 0);
+                vertex(width, 0);
+                vertex(width, height/1.4);
+                vertex(width/1.072, height/1.255);
+                vertex(width - width/5, height - height/6);
+                vertex(width/5, height - height/6);//
+                vertex(width - width/1.072, height/1.255);
+                vertex(0, height/1.4);
+                vertex(0, 0);
+                endPath();
+                
+                color(135, 135, 135);
+                beginPath();
+                vertex(width/4, height - height/6);
+                vertex(width/5, height - height/6);
+                vertex(width - width/1.072, height/1.255);
+                vertex(width/1.08, 0);
+                vertex(width, 0);
+                vertex(width, 75);
+                endPath();
+                
+                beginPath();
+                vertex(0, height/2.4);
+                vertex(0, height/1.6);
+                vertex(width/1.4, 0);
+                vertex(width/2, 0);
+                endPath();
+                
+                beginPath();
+                vertex(0, height/12);
+                vertex(0, height/4);
+                vertex(width/3.5, 0);
+                vertex(width/10, 0);
+                endPath();
+                
+                beginPath();
+                vertex(width/2, 5*height/6);
+                vertex(width/1.4, 5*height/6);
+                vertex(width, height/1.9);
+                vertex(width, height/3)
+                endPath();
+        });
+        
         });
     </script>
     
-    <!-- Java Script: makes webpage interactive -->
+    <!-- main.js : controls general interactivity -->
     <script type="text/javascript">
-        /**document.querySelector('#levelBox').addEventListener("change", function() {
-            createLeaderboard(this.value);
-        });**/
-    
 		/* Switches page */
 		function switchPage(page) {
-		    // hide all pages; then show the current one
-			document.querySelectorAll('.page').forEach(function(p) {
-			    p.style.display = 'none';
-			});
-            document.getElementById(page).style.display = 'block';
-            
-            // highlight the active page-button
-            document.querySelectorAll('nav button').forEach(function(n) {
-			    n.classList.remove('selected');
-			});
-            document.getElementById(page + "Button").classList.add('selected');
+		   transitioning = true;
+		    
+		    transitionFunction = function() {
+    		    // hide all pages; then show the current one
+    			document.querySelectorAll('.page').forEach(function(p) {
+    			    p.style.display = 'none';
+    			});
+                document.getElementById(page).style.display = 'block';
+                
+                // highlight the active page-button
+                document.querySelectorAll('nav button').forEach(function(n) {
+    			    n.classList.remove('selected');
+    			});
+                document.getElementById(page + "Button").classList.add('selected');
+		    };
 		};
 		
 		// display Homepage onload
-		switchPage('menu');
+		document.querySelectorAll('.page').forEach(function(p) {
+		    p.style.display = 'none';
+		});
+        document.getElementById("home").style.display = 'block';
+        
+        function fadeOut(el) {
+            var opacity = Number(window.getComputedStyle(el).getPropertyValue("opacity"));
+            var int = setInterval(function() {
+                opacity += (0 - opacity)/5;
+                el.style.opacity = opacity;
+                if (opacity < 0.2) {
+                    opacity = 0;
+                    el.style.opacity = opacity;
+                    el.classList.add('hide');
+                    el.classList.remove('show');
+                    clearInterval(int);
+                }
+            }, 10);
+        }
+        
+        function fadeIn(el) {
+            var opacity = /*Number(window.getComputedStyle(el).getPropertyValue("opacity"))*/0;
+            el.classList.remove('hide');
+            el.classList.add('show');
+            var int = setInterval(function() {
+                opacity += (1 - opacity)/5;
+                el.style.opacity = opacity;
+                if (opacity > 0.8) {
+                    opacity = 1;
+                    el.style.opacity = opacity;
+                    clearInterval(int);
+                }
+            }, 10);
+        }
+        
+        var selectedEvent = document.getElementById('selectedEvent'), 
+            eventList = document.getElementById('eventSelection');
+    	fadeOut(selectedEvent);
+    	
+    	var eventTitle, eventDate, eventDescription, IND;
+	    
+	    function goToEvent(index) {
+    	    fadeIn(selectedEvent);
+    	    fadeOut(eventList);
+    	    
+    	    var eventTitle = document.getElementById("eventTitle"),
+    	        eventDate = document.getElementById("eventDate"),
+    	        eventDescription = document.getElementById("eventDescription");
+    	    
+    	    var E = events[index];
+    	    
+    	    // calculate current date in Chicago Time
+	        var today = new Date().toLocaleString("en-US", { timeZone: "America/Chicago" });
+	        
+	        today = today.substr(0, today.length - 2);
+	        today = today.split(',');
+	        today[0] = today[0].split('/');
+	        today[1] = today[1].split(':');
+	        today = [today[0][2], today[0][0], today[0][1], today[1][0], today[1][1], today[1][2]];
+	        
+	        var startDate = E.startDate,
+	            endDate = E.endDate;
+	        
+	        if (checkDates(today, startDate) == "date1") {
+    	        var d1 = new Date(new String(today[1] + "/" + today[2] + "/" + today[0].toString().substr(2, 4) + " " + today[3] + ":" + today[4] + ":" + today[5])),
+	                d2 = new Date(new String(endDate[1] + "/" + endDate[2] + "/" + endDate[0].toString().substr(2, 4) + " " + endDate[3] + ":" + endDate[4] + ":" + endDate[5]));
+	            var timeLeft = timeDiffCalc(d2, d1);
+	            
+	            selectedEvent.innerHTML = "<h4 id='eventTitle'>" + E.title + "</h4><p><span id='date'>" + (startDate[1] + "/" + startDate[2] + "/" + startDate[0].toString().substr(2, 4)) + (" - ") + (endDate[1] + "/" + endDate[2] + "/" + endDate[0].toString().substr(2, 4)) + "</span> &#8594; Ends in <span class='days'>" + timeLeft[0] + "</span>D:<span class='hours'>" + timeLeft[1] + "</span>H:<span class='minutes'>" + timeLeft[2] + "</span>M:<span class='seconds'>" + timeLeft[3] + "</span>S</p><p id='eventDescription'>" + E.fullDescription + "</p><button onclick='returnToEvents()'' id='returnToEvents'>Return to Event List</button>";
+	        } else {
+	            var d1 = new Date(new String(today[1] + "/" + today[2] + "/" + today[0].toString().substr(2, 4) + " " + today[3] + ":" + today[4] + ":" + today[5])),
+	                d2 = new Date(new String(startDate[1] + "/" + startDate[2] + "/" + startDate[0].toString().substr(2, 4) + " " + startDate[3] + ":" + startDate[4] + ":" + startDate[5]));
+	            var timeLeft = timeDiffCalc(d2, d1);
+	            
+	            selectedEvent.innerHTML = "<h4 id='eventTitle'>" + E.title + "</h4><p><span id='date'>" + (startDate[1] + "/" + startDate[2] + "/" + startDate[0].toString().substr(2, 4)) + (" - ") + (endDate[1] + "/" + endDate[2] + "/" + endDate[0].toString().substr(2, 4)) + "</span> &#8594; Starts in <span class='days'>" + timeLeft[0] + "</span>D:<span class='hours'>" + timeLeft[1] + "</span>H:<span class='minutes'>" + timeLeft[2] + "</span>M:<span class='seconds'>" + timeLeft[3] + "</span>S</p><p id='eventDescription'>" + E.fullDescription + "</p><button onclick='returnToEvents()'' id='returnToEvents'>Return to Event List</button>";
+	        }
+    	}
+    	    
+    	function returnToEvents() {
+	       fadeOut(selectedEvent);
+	       fadeIn(eventList);
+	    }
+	    
+        // returns the date that is larger (past = small, future = large)
+        function checkDates(date1, date2) {
+            // compare the years
+            if (date1[0] > date2[0]) {
+                return "date1";
+            } else if (date2[0] > date1[0]) {
+                return "date2";
+            }
+            
+            // compare the months
+            if (date1[1] > date2[1]) {
+                return "date1";
+            } else if (date2[1] > date1[1]) {
+                return "date2";
+            }
+            
+            // compare the days
+            if (date1[2] > date2[2]) {
+                return "date1";
+            } else if (date2[2] > date1[2]) {
+                return "date2";
+            }
+            
+            // compare the hours
+            if (date1[3] > date2[3]) {
+                return "date1";
+            } else if (date2[3] > date1[3]) {
+                return "date2";
+            }
+            
+            // compare the minutes
+            if (date1[4] > date2[4]) {
+                return "date1";
+            } else if (date2[4] > date1[4]) {
+                return "date2";
+            }
+            
+            // compare the seconds
+            if (date1[5] > date2[5]) {
+                return "date1";
+            } else if (date2[5] > date1[5]) {
+                return "date2";
+            }
+            
+            // if totally equal, return null
+            return null;
+        }
+        
+        // D/H/M/S format
+        function timeDiffCalc(dateFuture, dateNow) {
+            var diffInMilliSeconds = Math.abs(dateFuture - dateNow) / 1000;
+        
+            // calculate days
+            var days = Math.floor(diffInMilliSeconds / 86400);
+            diffInMilliSeconds -= days * 86400;
+            console.log('calculated days', days);
+        
+            // calculate hours
+            var hours = Math.floor(diffInMilliSeconds / 3600) % 24;
+            diffInMilliSeconds -= hours * 3600;
+            console.log('calculated hours', hours);
+        
+            // calculate minutes
+            var minutes = Math.floor(diffInMilliSeconds / 60) % 60;
+            diffInMilliSeconds -= minutes * 60;
+            console.log('minutes', minutes);
+            
+            return [days, hours, minutes, diffInMilliSeconds];
+          }
+        
+        /** convert time zones: creidt to https://stackoverflow.com/questions/10087819/convert-date-to-another-timezone-in-javascript **/
+        function convertTZ(date, tzString) {
+            return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));   
+        }
+        
+        //convertTZ("2012/04/20 10:10:30 +0000", "America/Chicago")
+        
+	    for (var i = 0; i < events.length; i++) {
+	        var E = events[i];
+	        
+	        // calculate current date in Chicago Time
+	        var today = new Date().toLocaleString("en-US", { timeZone: "America/Chicago" });
+	        
+	        today = today.substr(0, today.length - 2);
+	        today = today.split(',');
+	        today[0] = today[0].split('/');
+	        today[1] = today[1].split(':');
+	        today = [today[0][2], today[0][0], today[0][1], today[1][0], today[1][1], today[1][2]];
+	        
+	        var startDate = E.startDate,
+	            endDate = E.endDate;
+	            
+	        var newEvent = document.createElement("div");
+	        newEvent.classList.add("event");
+	        newEvent.id = new String("event" + i);
+	        
+	        if (checkDates(today, startDate) == "date1") {
+    	        var d1 = new Date(new String(today[1] + "/" + today[2] + "/" + today[0].toString().substr(2, 4) + " " + today[3] + ":" + today[4] + ":" + today[5])),
+	                d2 = new Date(new String(endDate[1] + "/" + endDate[2] + "/" + endDate[0].toString().substr(2, 4) + " " + endDate[3] + ":" + endDate[4] + ":" + endDate[5]));
+	            var timeLeft = timeDiffCalc(d2, d1);
+	            
+	            newEvent.innerHTML = "<h5 onclick='goToEvent(" + i + ")' class='eventTitle'>" + E.title + "</h5><p class='eventDescription'>" + E.miniDescription + "</p><p><span class='date'>" + (startDate[1] + "/" + startDate[2] + "/" + startDate[0].toString().substr(2, 4)) + (" - ") + (endDate[1] + "/" + endDate[2] + "/" + endDate[0].toString().substr(2, 4)) + "</span><br>Ends in <span class='days'>" + timeLeft[0] + "</span>D:<span class='hours'>" + timeLeft[1] + "</span>H:<span class='minutes'>" + timeLeft[2] + "</span>M:<span class='seconds'>" + timeLeft[3] + "</span>S</p>";
+	            document.getElementById('currentEvents').appendChild(newEvent);
+	            } 
+	        else {
+	            var d1 = new Date(new String(today[1] + "/" + today[2] + "/" + today[0].toString().substr(2, 4) + " " + today[3] + ":" + today[4] + ":" + today[5])),
+	                d2 = new Date(new String(startDate[1] + "/" + startDate[2] + "/" + startDate[0].toString().substr(2, 4) + " " + startDate[3] + ":" + startDate[4] + ":" + startDate[5]));
+	            var timeLeft = timeDiffCalc(d2, d1);
+	            
+	            newEvent.innerHTML = "<h5 onclick='goToEvent(" + i + ")' class='eventTitle'>" + E.title + "</h5><p class='eventDescription'>" + E.miniDescription + "</p><p><span class='date'>" + (startDate[1] + "/" + startDate[2] + "/" + startDate[0].toString().substr(2, 4)) + (" - ") + (endDate[1] + "/" + endDate[2] + "/" + endDate[0].toString().substr(2, 4)) + "</span><br>Starts in <span class='days'>" + timeLeft[0] + "</span>D:<span class='hours'>" + timeLeft[1] + "</span>H:<span class='minutes'>" + timeLeft[2] + "</span>M:<span class='seconds'>" + timeLeft[3] + "</span>S</p>";
+	            document.getElementById('upComingEvents').appendChild(newEvent);
+	        }
+	    }
+	    
+	    setInterval(function() {
+	        // calculate current date in Chicago Time
+	        var today = new Date().toLocaleString("en-US", { timeZone: "America/Chicago" });
+	        
+	        today = today.substr(0, today.length - 2);
+	        today = today.split(',');
+	        today[0] = today[0].split('/');
+	        today[1] = today[1].split(':');
+	        today = [today[0][2], today[0][0], today[0][1], today[1][0], today[1][1], today[1][2]];
+	        
+	        for (var i = 0; i < events.length; i++) {
+    	        var E = events[i];
+    	        
+    	        var startDate = E.startDate,
+    	            endDate = E.endDate;
+    	            
+    	        var newEvent = document.getElementById("event" + i);
+    	        
+    	        
+    	        if (checkDates(today, startDate) == "date1") {
+        	        var d1 = new Date(new String(today[1] + "/" + today[2] + "/" + today[0].toString().substr(2, 4) + " " + today[3] + ":" + today[4] + ":" + today[5])),
+    	                d2 = new Date(new String(endDate[1] + "/" + endDate[2] + "/" + endDate[0].toString().substr(2, 4) + " " + endDate[3] + ":" + endDate[4] + ":" + endDate[5]));
+    	            var timeLeft = timeDiffCalc(d2, d1);
+    	            
+    	            newEvent.innerHTML = "<h5 onclick='goToEvent(" + i + ")' class='eventTitle'>" + E.title + "</h5><p class='eventDescription'>" + E.miniDescription + "</p><p><span class='date'>" + (startDate[1] + "/" + startDate[2] + "/" + startDate[0].toString().substr(2, 4)) + (" - ") + (endDate[1] + "/" + endDate[2] + "/" + endDate[0].toString().substr(2, 4)) + "</span><br>Ends in <span class='days'>" + timeLeft[0] + "</span>D:<span class='hours'>" + timeLeft[1] + "</span>H:<span class='minutes'>" + timeLeft[2] + "</span>M:<span class='seconds'>" + timeLeft[3] + "</span>S</p>";
+    	            document.getElementById('currentEvents').appendChild(newEvent);
+    	            } 
+    	        else {
+    	            var d1 = new Date(new String(today[1] + "/" + today[2] + "/" + today[0].toString().substr(2, 4) + " " + today[3] + ":" + today[4] + ":" + today[5])),
+    	                d2 = new Date(new String(startDate[1] + "/" + startDate[2] + "/" + startDate[0].toString().substr(2, 4) + " " + startDate[3] + ":" + startDate[4] + ":" + startDate[5]));
+    	            var timeLeft = timeDiffCalc(d2, d1);
+    	            
+    	            newEvent.innerHTML = "<h5 onclick='goToEvent(" + i + ")' class='eventTitle'>" + E.title + "</h5><p class='eventDescription'>" + E.miniDescription + "</p><p><span class='date'>" + (startDate[1] + "/" + startDate[2] + "/" + startDate[0].toString().substr(2, 4)) + (" - ") + (endDate[1] + "/" + endDate[2] + "/" + endDate[0].toString().substr(2, 4)) + "</span><br>Starts in <span class='days'>" + timeLeft[0] + "</span>D:<span class='hours'>" + timeLeft[1] + "</span>H:<span class='minutes'>" + timeLeft[2] + "</span>M:<span class='seconds'>" + timeLeft[3] + "</span>S</p>";
+    	            document.getElementById('upComingEvents').appendChild(newEvent);
+    	        }
+    	    }
+    	    
+    	    var startDate = E.startDate,
+	            endDate = E.endDate;
+	        
+	        if (checkDates(today, startDate) == "date1") {
+    	        var d1 = new Date(new String(today[1] + "/" + today[2] + "/" + today[0].toString().substr(2, 4) + " " + today[3] + ":" + today[4] + ":" + today[5])),
+	                d2 = new Date(new String(endDate[1] + "/" + endDate[2] + "/" + endDate[0].toString().substr(2, 4) + " " + endDate[3] + ":" + endDate[4] + ":" + endDate[5]));
+	            var timeLeft = timeDiffCalc(d2, d1);
+	            
+	            selectedEvent.innerHTML = "<h4 id='eventTitle'>" + E.title + "</h4><p><span id='date'>" + (startDate[1] + "/" + startDate[2] + "/" + startDate[0].toString().substr(2, 4)) + (" - ") + (endDate[1] + "/" + endDate[2] + "/" + endDate[0].toString().substr(2, 4)) + "</span> &#8594; Ends in <span class='days'>" + timeLeft[0] + "</span>D:<span class='hours'>" + timeLeft[1] + "</span>H:<span class='minutes'>" + timeLeft[2] + "</span>M:<span class='seconds'>" + timeLeft[3] + "</span>S</p><p id='eventDescription'>" + E.fullDescription + "</p><button onclick='returnToEvents()'' id='returnToEvents'>Return to Event List</button>";
+	        } else {
+	            var d1 = new Date(new String(today[1] + "/" + today[2] + "/" + today[0].toString().substr(2, 4) + " " + today[3] + ":" + today[4] + ":" + today[5])),
+	                d2 = new Date(new String(startDate[1] + "/" + startDate[2] + "/" + startDate[0].toString().substr(2, 4) + " " + startDate[3] + ":" + startDate[4] + ":" + startDate[5]));
+	            var timeLeft = timeDiffCalc(d2, d1);
+	            
+	            selectedEvent.innerHTML = "<h4 id='eventTitle'>" + E.title + "</h4><p><span id='date'>" + (startDate[1] + "/" + startDate[2] + "/" + startDate[0].toString().substr(2, 4)) + (" - ") + (endDate[1] + "/" + endDate[2] + "/" + endDate[0].toString().substr(2, 4)) + "</span> &#8594; Starts in <span class='days'>" + timeLeft[0] + "</span>D:<span class='hours'>" + timeLeft[1] + "</span>H:<span class='minutes'>" + timeLeft[2] + "</span>M:<span class='seconds'>" + timeLeft[3] + "</span>S</p><p id='eventDescription'>" + E.fullDescription + "</p><button onclick='returnToEvents()'' id='returnToEvents'>Return to Event List</button>";
+	        }
+	    }, 1000);
+	    
+	    if (document.getElementById("currentEvents").children.length === 0) {
+	        var p = document.createElement('p');
+	        p.classList.add("noEvents");
+	        p.innerHTML = "There are currently no events that are ongoing.<br>Check below for upcoming events.";
+	        document.getElementById("currentEvents").appendChild(p);
+	    }
+	    if (document.getElementById("upComingEvents").children.length === 0) {
+	        var p = document.createElement('p');
+	        p.classList.add("noEvents");
+	        p.innerHTML = "There are currently no upcoming events. If you are a BARON, feel<br>free to create your own by making a new MotD post.";
+	        document.getElementById("upComingEvents").appendChild(p);
+	    }
 	</script>
 </html>
